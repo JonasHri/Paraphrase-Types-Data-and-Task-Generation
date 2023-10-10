@@ -253,7 +253,7 @@ def parse_args():
     parser.add_argument(
         "--dataset_name",
         type=str,
-        default="jpwahle/etpc-parquet",
+        default="jpwahle/etpc", # previously "jpwahle/etpc-parquet" 
         help="Name of the dataset to use",
     )
     parser.add_argument(
