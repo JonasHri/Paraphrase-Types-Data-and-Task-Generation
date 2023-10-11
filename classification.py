@@ -24,6 +24,8 @@ from transformers import (
     TrainingArguments,
 )
 
+from get_dataset import get_dataset
+
 nlp = spacy.load("en_core_web_sm")
 
 # Groups
@@ -284,7 +286,7 @@ def main():
     args = parse_args()
 
     # Load the dataset
-    dataset = load_dataset(args.dataset_name)
+    dataset = get_dataset(args.dataset_name)
 
     # Create tokenizer
     tokenizer = AutoTokenizer.from_pretrained(args.model_name, add_prefix_space=True)
