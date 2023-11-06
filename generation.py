@@ -1,10 +1,11 @@
 from transformers import AutoTokenizer
 import transformers
 import torch
+from get_helpers import get_tokenizer
 
 model = "meta-llama/Llama-2-7b-chat-hf"
 
-tokenizer = AutoTokenizer.from_pretrained(model) 
+tokenizer = get_tokenizer(model) 
 pipeline = transformers.pipeline(
     "text-generation",
     model=model,

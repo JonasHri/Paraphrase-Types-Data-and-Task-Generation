@@ -24,7 +24,7 @@ from transformers import (
     TrainingArguments,
 )
 
-from get_dataset import get_dataset
+from get_helpers import get_dataset
 
 nlp = spacy.load("en_core_web_sm")
 
