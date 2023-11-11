@@ -1,12 +1,12 @@
 from transformers import AutoTokenizer
 import transformers
 import torch
-from get_helpers import get_tokenizer
+from get_helpers import get_tokenizer, get_pipline
 
 model = "meta-llama/Llama-2-7b-chat-hf"
 
 tokenizer = get_tokenizer(model) 
-pipeline = transformers.pipeline(
+pipeline = get_pipline(
     "text-generation",
     model=model,
     torch_dtype=torch.float16,
