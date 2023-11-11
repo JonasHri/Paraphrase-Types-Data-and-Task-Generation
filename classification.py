@@ -24,7 +24,7 @@ from transformers import (
     TrainingArguments,
 )
 
-from get_helpers import get_dataset
+from get_helpers import get_dataset, get_tokenizer
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -289,7 +289,7 @@ def main():
     dataset = get_dataset(args.dataset_name)
 
     # Create tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(args.model_name, add_prefix_space=True)
+    tokenizer = get_tokenizer(args.model_name, add_prefix_space=True)
 
     if "etpc" in args.dataset_name:
         # ETPC dataset keys
