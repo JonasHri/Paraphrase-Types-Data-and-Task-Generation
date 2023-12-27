@@ -72,9 +72,16 @@ def create_label_maps(etpc):
     )
 
     # Download xml with paraphrase types to ids from url https://github.com/venelink/ETPC/blob/master/Corpus/paraphrase_types.xml
-    url = "https://raw.githubusercontent.com/venelink/ETPC/master/Corpus/paraphrase_types.xml"
-    r = requests.get(url)
-    root = ET.fromstring(r.text)
+    if not os.path.exists("./paraphrase_types.xml"):
+        url = "https://raw.githubusercontent.com/venelink/ETPC/master/Corpus/paraphrase_types.xml"
+        r = requests.get(url)
+        xml_string = r.text
+        with open("./paraphrase_types.xml", "w") as f:
+            f.write(xml_string)
+    else:
+        with open("./paraphrase_types.xml", "r") as f:
+            xml_string = f.read()
+    root = ET.fromstring(xml_string)
 
     # Get paraphrase types, ids and categories
     paraphrase_types = [child.find("type_name").text for child in root]
