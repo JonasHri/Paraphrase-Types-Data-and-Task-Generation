@@ -47,7 +47,7 @@ def get_pipline(task: str, *args, model="", **kwargs):
 
     if exists(location):
         print(f"loading pipeline from disk at {location}")
-        pipeline = transformers.pipeline(task, location) 
+        pipeline = transformers.pipeline(task, location, *args, **kwargs) 
     else:
         print(f"downloading pipeline from huggingface databank at {model}")
         pipeline = transformers.pipeline(task, *args, model=model, **kwargs)
