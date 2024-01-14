@@ -36,7 +36,7 @@ def get_tokenizer(path: str, *args, **kwargs):
         print(f"downloading tokenizer from huggingface databank at {path}")
         tokenizer = AutoTokenizer.from_pretrained(path, *args, **kwargs)
     # dataset = load_dataset("jpwahle/etpc")
-        print(f"saving dataset at {location}")
+        print(f"saving tokenizer at {location}")
         tokenizer.save_pretrained(location)
 
     return tokenizer 
